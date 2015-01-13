@@ -1,0 +1,204 @@
+/*
+01.10.2015
+Hanbyul Jo
+*/
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+
+  src: url('../fonts/lato/lato-black.eot');
+  src: url('../fonts/lato/lato-black.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-black.woff') format('woff'), url('../fonts/lato/lato-black.ttf') format('truetype'), url('../fonts/lato/lato-black.svg#latoblack') format('svg');
+  }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: bold;
+
+  src: url('../fonts/lato/lato-bold.eot');
+  src: url('../fonts/lato/lato-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-bold.woff') format('woff'), url('../fonts/lato/lato-bold.ttf') format('truetype'), url('../fonts/lato/lato-bold.svg#latobold') format('svg');
+  }
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: bold;
+
+  src: url('../fonts/lato/lato-bolditalic.eot');
+  src: url('../fonts/lato/lato-bolditalic.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-bolditalic.woff') format('woff'), url('../fonts/lato/lato-bolditalic.ttf') format('truetype'), url('../fonts/lato/lato-bolditalic.svg#latobold-italic') format('svg');
+  }
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: normal;
+
+  src: url('../fonts/lato/lato-italic.eot');
+  src: url('../fonts/lato/lato-italic.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-italic.woff') format('woff'), url('../fonts/lato/lato-italic.ttf') format('truetype'), url('../fonts/lato/lato-italic.svg#latoitalic') format('svg');
+  }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+
+  src: url('../fonts/lato/lato-light.eot');
+  src: url('../fonts/lato/lato-light.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-light.woff') format('woff'), url('../fonts/lato/lato-light.ttf') format('truetype'), url('../fonts/lato/lato-light.svg#latolight') format('svg');
+  }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: normal;
+
+  src: url('../fonts/lato/lato-regular.eot');
+  src: url('../fonts/lato/lato-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-regular.woff') format('woff'), url('../fonts/lato/lato-regular.ttf') format('truetype'), url('../fonts/lato/lato-regular.svg#latoregular') format('svg');
+  }
+@font-face {
+  font-family: 'Flat-UI-Icons';
+
+  src: url('../fonts/glyphicons/flat-ui-icons-regular.eot');
+  src: url('../fonts/glyphicons/flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons/flat-ui-icons-regular.woff') format('woff'), url('../fonts/glyphicons/flat-ui-icons-regular.ttf') format('truetype'), url('../fonts/glyphicons/flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
+  }
+
+html,body{
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+	overflow-x:hidden;
+
+}
+	
+#londonmap{
+
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	cursor:pointer;
+  float:left;
+	
+}
+
+#nycmap{
+  width:100%;
+  height:100%;
+  margin:0 auto;
+  cursor:pointer;
+  float:left;
+}
+
+.cityname{
+  margin-bottom:0px;
+  letter-spacing: 1.5px;
+}
+
+.desc{
+  margin-top:0px;
+  color:#232B20;
+  font-weight:300;
+}
+
+.title_part{
+  width:100%;
+
+}
+
+.info_part{
+  width:100%;
+  height:30px;
+  padding-top:20px;
+  font-weight:300;
+}
+
+.temp_part{
+  width:50%;
+  float:left;
+}
+
+.temp_part p{
+  margin-top:0px;
+  margin-bottom:0px;
+  width:100%;
+}
+
+.temp_name{
+  font-size:0.9em;
+}
+.temperature{
+  font-size:1.3em;
+  letter-spacing: 1.5px;
+
+}
+
+.hum_part{
+  width:50%;
+  float:left;
+  width:50%;
+}
+
+.hum_part p{
+  margin-top:0px;
+  margin-bottom:0px;
+  width:100%;
+
+}
+.hum_name{
+  font-size:0.9em;
+}
+
+
+.humidity{
+  font-size:1.3em;
+  letter-spacing: 1.5px;
+}
+
+.graph{
+
+  width:35%;
+  height:130px;
+  padding-top:20px;
+  float:left;
+}
+
+.wrapper{
+	font-family:'Lato';
+	width:50%;
+  height:100%;
+	margin:0 auto;
+	min-height:10px;
+	float:left;
+  position:relative;
+  font-weight:12px;
+}
+
+.tie{
+  width:60%;
+  float:left;
+}
+
+
+.content{
+
+  width: calc(100% - 70px);
+  height:150px;
+  position:absolute;
+  margin-left:20px;
+  padding:10px;
+  padding-top:0px;
+  padding-left:20px;
+  bottom:20px;
+  background-color:rgba(255,255,255,0.5); 
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  .wrapper{
+  font-family:'Lato';
+  width:100%;
+  height:50%;
+  margin:0 auto;
+  min-height:10px;
+  float:left;
+  position:relative;
+  font-weight:12px;
+  }
+
+}
