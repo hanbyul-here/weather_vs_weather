@@ -1,7 +1,11 @@
+
+//put map
 var londonmap = new L.Map('londonmap').setView([51.5286416,-0.1015987], 10);
 new L.TileLayer('http://{s}.tiles.mapbox.com/v3/hanbyulhere.knc5n0g8/{z}/{x}/{y}.png',
              { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: 10 }).addTo(londonmap);
 
+
+//add indteraction
 londonmap.on('click', function(e) {
   
 	londonmap.panTo(L.latLng(e.latlng));
