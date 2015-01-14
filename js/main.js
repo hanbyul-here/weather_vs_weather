@@ -9,7 +9,7 @@ $(document).ready(function(){
 	nyc_graph.setup();
 
 	updateData(51.5286416,-0.1015987,"#london",london_graph);
-	updateData(40.7056258,-73.97968,"#nyc",nyc_graph);
+	updateData(40.7294245,-73.993707,"#nyc",nyc_graph);
 
 });
 
