@@ -1,15 +1,17 @@
+<!doctype html>
 <html>
 <head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">	
 	<title> Weather VS Weather </title>
-	<script src="js/jquery/dist/jquery.js"></script>
-	<script src="js/d3/d3.js"></script>
+	<script src="js/jquery/dist/jquery.min.js"></script>
+	<script src="js/d3/d3.min.js" charset="utf-8"></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<link href="css/d3.css" rel="stylesheet" />
 	<link href="css/style.css" rel="stylesheet" />	
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
 </head>
 <body>
-
 	
 	<div id ="london" class = "wrapper">
 		<div id="londonmap"> </div>
@@ -30,7 +32,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="graph"> </div>
+
+				<div class="graph"> <div class="no_history_data"> </div></div>
 			</div>
 	</div>
 	<div id ="nyc" class="wrapper">
@@ -52,102 +55,17 @@
 						</div>
 					</div>
 				</div>
-				<div class="graph"> </div>
+				<div class="graph"> <div class="no_history_data"> </div></div>
 			</div>
 		 </div>
 	</div>
 	
 	<script src="js/map.js"></script>
 	<script src="js/graph.js"></script>
+	<script src="js/main.js"></script>
 
 	<script>
 
-	var london_graph;
-	var nyc_graph;
-	var first = 0;
-
-	$(document).ready(function(){ 
-		london_graph = new graph("london");
-		nyc_graph = new graph("nyc");
-		london_graph.setup();
-		nyc_graph.setup();
-
-		updateData(51.52,-0.07,"#london",london_graph);
-		updateData(40.73, -73.99,"#nyc",nyc_graph);
-
-	});
-	function kToF(kelvin){
-		var temp = ((Math.floor(((kelvin-278.15)*1.5+32))*100)/100);
-		return temp.toString()+"°F";
-	}	
-	function kToC(kelvin){
-		var temp = (Math.floor((kelvin-273.15)*100)/100);
-		return temp.toString()+"°C";
-	}
-
-    var updateData = function(latq,lonq,selector_q,graph){
-            
-        $.ajax({
-        	crossDomain:true,
-			type:"GET",
-			contentType: "application/json; charset=utf-8",
-			url:"http://api.openweathermap.org/data/2.5/weather?lat="+latq+"&lon="+lonq,
-            dataType:'jsonp'			
-		})
-		.done(function(data){
-			
-			$(selector_q+" .title_part .cityname").text(data.name + ", "+ data.sys.country);
-			$(selector_q+" .title_part .desc").text(data.weather[0].description);	
-			$(selector_q+" .info_part .temperature").text(kToF(data.main.temp));	
-			$(selector_q+" .info_part .humidity").text(data.main.humidity);
-			updateGraph(data.id,graph,selector_q);
-		})
-		.fail(function(jqxhr,textstat,errthrown){
-
-		$(selector_q+" .desc").text("Weather data is currently not available for this area");
-		});
-
-    }
-
-    
-	function updateGraph(city_q,graph,selector_q){
-
-		var curr_time_f = new Date().getTime();
-		var past_time_f = curr_time_f - 600*60*1000;
-
-		var curr_time = Math.floor(curr_time_f/1000).toString();
-		var past_time = Math.floor(past_time_f/1000).toString();
-
-
-		var q_default = "http://api.openweathermap.org/data/2.5/history/city?id="+city_q+"&type=hour&start="+past_time+"&end="+curr_time;
-		
-		 $.ajax({
-         	crossDomain:true,
-		 	type:"GET",
-		 	contentType: "application/json; charset=utf-8",
-		 	url:q_default,
-            dataType:'jsonp'
-			
-		 })		
-		 .done(function(data){
-		 	if(data.cnt > 1){
-		 		//graph.remove();
-				if(first<2)	{
-					graph.draw_graph(data);
-					first++;
-				}
-				else graph.update(data);
-		 	}else{
-		 	    $(selector_q+" .graph").text("Temeperature history data is not available for this area. ");
-			
-		 	}
-		 })
-		 .fail(function(jqxhr,textstat,errthrown){
-		 	$(selector_q+" .graph").text("Temeperature history data is currently not available for this area. ");
-			
-		 });
-	}
-	
 	</script>
 
 

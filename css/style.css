@@ -155,6 +155,7 @@ html,body{
   height:130px;
   padding-top:20px;
   float:left;
+  position:relative;
 }
 
 .wrapper{
@@ -185,6 +186,14 @@ html,body{
   padding-left:20px;
   bottom:20px;
   background-color:rgba(255,255,255,0.5); 
+
+}
+
+.no_history_data{
+  position:absolute;
+  top:30px;
+  left:20px;
+  font-weight:300;
 
 }
 

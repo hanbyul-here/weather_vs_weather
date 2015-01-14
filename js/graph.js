@@ -40,16 +40,13 @@ function graph(city_q){
 
 
 	this.draw_graph = function(data){
-		console.log("drawn");
 	
-
 		var tempValues = [];
 
 
 		for(var i =0; i<data.list.length; i++){
 			tempValues.push(kToF(parseFloat(data.list[i].main.temp)));
 		}
-		console.log(tempValues.length);
 		// make buffer for graph
 		var buffer  = 0.3;
 		
